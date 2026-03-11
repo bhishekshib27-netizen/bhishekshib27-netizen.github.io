@@ -1,0 +1,2406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bhishek Shibdeen | Compliance • AML • Risk</title>
+<meta name="description" content="Modern compliance portfolio: certifications, experience, projects, cinematic grain + spotlight glow, featured work." />
+
+<!-- Premium fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --card:#ffffff;
+    --text:#0b0b0b;
+    --muted: rgba(0,0,0,.62);
+    --line: rgba(0,0,0,.14);
+    --soft: rgba(0,0,0,.04);
+
+    --r:12px;
+    --shadow: 0 20px 60px rgba(0,0,0,0.10);
+    --shadow2: 0 10px 26px rgba(0,0,0,0.075);
+    --ease: cubic-bezier(.2,.8,.2,1);
+  }
+
+  [data-theme="dark"]{
+    --bg:#0b0f14;
+    --card:#0f151d;
+    --text:#f2f4f7;
+    --muted: rgba(255,255,255,.62);
+    --line: rgba(255,255,255,.14);
+    --soft: rgba(255,255,255,.06);
+
+    --shadow: 0 20px 60px rgba(0,0,0,0.45);
+    --shadow2: 0 10px 26px rgba(0,0,0,0.30);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:"Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    letter-spacing:-0.15px;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.brand span{
+    font-family:"Space Grotesk","Inter",ui-sans-serif,system-ui;
+    letter-spacing:-0.6px;
+  }
+  a{ color:inherit; }
+
+  /* ===== Progress bar ===== */
+  .progress{
+    position:fixed; top:0; left:0;
+    width:100%; height:3px;
+    z-index:999;
+    background:transparent;
+  }
+  .progress > span{
+    display:block; height:100%; width:0%;
+    background: linear-gradient(90deg, rgba(0,0,0,.90), rgba(0,0,0,.25));
+    transform-origin:left;
+  }
+  [data-theme="dark"] .progress > span{
+    background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.25));
+  }
+
+  /* ===== Premium background stack ===== */
+  #particleCanvas{ position:fixed; inset:0; z-index:0; pointer-events:none; display:block; }
+
+  .bg-stage{
+    position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(0,0,0,0.03), transparent 44%),
+      radial-gradient(circle at 88% 20%, rgba(0,0,0,0.02), transparent 46%),
+      radial-gradient(circle at 50% 92%, rgba(0,0,0,0.02), transparent 52%);
+  }
+  [data-theme="dark"] .bg-stage{
+    background:
+      radial-gradient(circle at 14% 18%, rgba(255,255,255,0.06), transparent 44%),
+      radial-gradient(circle at 88% 20%, rgba(255,255,255,0.05), transparent 46%),
+      radial-gradient(circle at 50% 92%, rgba(255,255,255,0.04), transparent 52%);
+  }
+  .grid{
+    position:absolute; inset:0;
+    opacity:0.06;
+    background:
+      linear-gradient(rgba(0,0,0,0.10) 1px, transparent 1px) 0 0/96px 96px,
+      linear-gradient(90deg, rgba(0,0,0,0.10) 1px, transparent 1px) 0 0/96px 96px;
+    mask-image: radial-gradient(circle at 50% 18%, black 0%, transparent 72%);
+  }
+  [data-theme="dark"] .grid{
+    opacity:0.08;
+    background:
+      linear-gradient(rgba(255,255,255,0.10) 1px, transparent 1px) 0 0/96px 96px,
+      linear-gradient(90deg, rgba(255,255,255,0.10) 1px, transparent 1px) 0 0/96px 96px;
+  }
+
+  .ambient{
+    position:fixed; inset:-10%;
+    pointer-events:none; z-index:0;
+    opacity:.55; filter:blur(18px);
+    background:
+      radial-gradient(520px 420px at 18% 22%, rgba(0,0,0,0.05), transparent 70%),
+      radial-gradient(620px 520px at 84% 26%, rgba(0,0,0,0.04), transparent 72%),
+      radial-gradient(760px 560px at 56% 86%, rgba(0,0,0,0.035), transparent 74%);
+    animation: ambientDrift 18s ease-in-out infinite alternate;
+  }
+  [data-theme="dark"] .ambient{
+    opacity:.6;
+    background:
+      radial-gradient(560px 460px at 18% 22%, rgba(255,255,255,0.07), transparent 72%),
+      radial-gradient(680px 560px at 84% 26%, rgba(255,255,255,0.055), transparent 74%),
+      radial-gradient(820px 620px at 56% 86%, rgba(255,255,255,0.045), transparent 76%);
+  }
+  @keyframes ambientDrift{
+    0%{ transform: translate(-1.2%, -0.8%) scale(1.02); }
+    50%{ transform: translate( 1.2%,  0.6%) scale(1.04); }
+    100%{ transform: translate(-0.6%,  1.0%) scale(1.03); }
+  }
+
+  .spotlight{
+    position:fixed; inset:0;
+    pointer-events:none; z-index:0;
+    --sx:50vw; --sy:30vh; --a:0.10;
+    background: radial-gradient(760px 560px at var(--sx) var(--sy),
+      rgba(0,0,0,var(--a)), transparent 74%);
+    filter: blur(7px);
+  }
+  [data-theme="dark"] .spotlight{
+    --a:0.14;
+    background: radial-gradient(760px 560px at var(--sx) var(--sy),
+      rgba(255,255,255,var(--a)), transparent 74%);
+  }
+  @media (max-width: 720px){ .spotlight, .ambient{ display:none; } }
+
+  .grain{
+    position:fixed; inset:-40%;
+    pointer-events:none; z-index:1;
+    opacity:.045; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+    background-size:240px 240px;
+    animation: grainMove 8s steps(6) infinite;
+    transform: translate3d(0,0,0);
+  }
+  [data-theme="dark"] .grain{ opacity:.08; mix-blend-mode:overlay; }
+  @keyframes grainMove{
+    0%{ transform: translate(0%,0%); }
+    20%{ transform: translate(-5%,-2%); }
+    40%{ transform: translate(-3%,6%); }
+    60%{ transform: translate(6%,0%); }
+    80%{ transform: translate(-2%,-2%); }
+    100%{ transform: translate(0%,0%); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    .ambient, .spotlight{ display:none !important; }
+    #particleCanvas{ display:none !important; }
+    .grain{ animation:none !important; }
+    .reveal{ opacity:1 !important; transform:none !important; filter:none !important; }
+  }
+
+  /* ===== Layout ===== */
+  .wrap{
+    width:min(1120px, 92vw);
+    margin:0 auto;
+    padding:18px 0 120px;
+    position:relative;
+    z-index:2;
+  }
+
+  /* ===== Nav ===== */
+  .nav{
+    position:sticky; top:14px;
+    z-index:60;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:14px;
+    padding:12px 14px;
+    background: color-mix(in srgb, var(--card) 88%, transparent);
+    border:1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--shadow2);
+    backdrop-filter: blur(10px);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:950; }
+  .brand-mark{
+    width:11px; height:11px; border-radius:3px;
+    background: linear-gradient(135deg, rgba(0,0,0,.9), rgba(0,0,0,.25));
+  }
+  [data-theme="dark"] .brand-mark{
+    background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.25));
+  }
+
+  .navlinks{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; justify-content:flex-end; }
+  .nav a{
+    text-decoration:none;
+    font-weight:850;
+    font-size:12px;
+    padding:9px 12px;
+    border-radius:10px;
+    border:1px solid transparent;
+    opacity:0.78;
+    transition:0.18s var(--ease);
+  }
+  .nav a:hover{
+    opacity:1;
+    background: var(--soft);
+    border-color: var(--line);
+    transform: translateY(-1px);
+  }
+  .nav a.active{
+    opacity:1;
+    background: rgba(0,0,0,0.055);
+    border-color: rgba(0,0,0,.18);
+  }
+  [data-theme="dark"] .nav a.active{
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  .themebtn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:9px 12px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background: var(--card);
+    color: var(--text);
+    font-weight:900;
+    font-size:12px;
+    cursor:pointer;
+    transition: background .18s var(--ease), transform .18s var(--ease);
+    user-select:none;
+    white-space:nowrap;
+  }
+  .themebtn:hover{ background: var(--soft); transform: translateY(-1px); }
+  .themebtn svg{ width:16px; height:16px; opacity:.9; }
+
+  /* ===== Cards / reveal ===== */
+  .card{
+    background: var(--card);
+    border:1px solid var(--line);
+    border-radius: var(--r);
+    overflow:hidden;
+    box-shadow: var(--shadow2);
+  }
+
+  .reveal{ opacity:0; transform: translateY(18px); filter: blur(10px); }
+  .reveal.in{
+    opacity:1; transform: translateY(0); filter: blur(0);
+    transition: opacity .85s var(--ease), transform .85s var(--ease), filter .85s var(--ease);
+  }
+
+  /* ===== Hero ===== */
+  .hero{ margin-top:18px; }
+  .hero-main{ padding:28px; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:18px;
+    align-items:stretch;
+  }
+  @media (max-width: 920px){ .hero-grid{ grid-template-columns: 1fr; } }
+
+  h1{
+    margin:0;
+    font-size: clamp(36px, 4.4vw, 58px);
+    line-height:1.02;
+    font-weight:700;
+    letter-spacing:-1.2px;
+  }
+  .motto-row{
+    margin-top:10px;
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .kaizen{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:9px 12px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    background: var(--soft);
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-size:12px;
+  }
+  .kaizen-dot{
+    width:9px; height:9px; border-radius:2px;
+    background: linear-gradient(135deg, rgba(0,0,0,.9), rgba(0,0,0,.25));
+  }
+  [data-theme="dark"] .kaizen-dot{
+    background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.25));
+  }
+
+  .subtitle{
+    margin:12px 0 0;
+    line-height:1.85;
+    font-size:16px;
+    font-weight:520;
+    color: color-mix(in srgb, var(--text) 84%, transparent);
+    max-width:90ch;
+  }
+  .subtitle strong{ font-weight:800; }
+
+  .cta{
+    margin-top:14px;
+    display:flex; flex-wrap:wrap;
+    gap:10px; align-items:center;
+  }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:10px 14px;
+    border-radius:10px;
+    text-decoration:none;
+    border:1px solid var(--line);
+    background: var(--card);
+    color: var(--text);
+    font-weight:800;
+    font-size:13px;
+    transition: background .18s var(--ease), box-shadow .18s var(--ease), transform .18s var(--ease);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .btn:hover{ background: var(--soft); transform: translateY(-1px); }
+  .btn.primary{
+    border-color: color-mix(in srgb, var(--text) 22%, transparent);
+    color: var(--bg);
+    background: linear-gradient(90deg,
+      color-mix(in srgb, var(--text) 92%, transparent),
+      color-mix(in srgb, var(--text) 55%, transparent));
+    box-shadow: 0 14px 38px rgba(0,0,0,0.18);
+  }
+  [data-theme="dark"] .btn.primary{
+    color:#0b0f14;
+    background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.60));
+    box-shadow: 0 14px 38px rgba(0,0,0,0.45);
+  }
+  .btn.primary:hover{ transform: translateY(-2px); }
+
+  .li-ico{ width:14px; height:14px; display:inline-block; opacity:.9; }
+
+  /* ===== Right panel ===== */
+  .panel{
+    border:1px solid var(--line);
+    border-radius: var(--r);
+    background: var(--soft);
+    padding:18px;
+  }
+  .panel h3{ margin:0; font-size:16px; font-weight:700; letter-spacing:-0.2px; }
+  .panel p{
+    margin:10px 0 0;
+    color: var(--muted);
+    font-weight:520;
+    font-size:13px;
+    line-height:1.75;
+  }
+  .quicklinks{ margin-top:12px; display:grid; gap:10px; }
+
+  .ql{
+    border:1px solid var(--line);
+    border-radius:12px;
+    background: var(--card);
+    overflow:hidden;
+    transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .18s var(--ease);
+  }
+  .ql:hover{ transform: translateY(-2px); box-shadow: var(--shadow2); background: color-mix(in srgb, var(--card) 92%, var(--soft)); }
+  .ql a{
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:12px;
+  }
+  .ql .left{ display:flex; align-items:center; gap:10px; min-width:0; }
+  .ql .ico{
+    width:34px; height:34px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    display:grid; place-items:center;
+    background: var(--soft);
+    flex:0 0 auto;
+  }
+  .ql .ico svg{ width:18px; height:18px; }
+  .ql .txt{ display:grid; gap:2px; min-width:0; }
+  .ql .t{ font-weight:950; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .ql .s{ font-weight:650; font-size:12px; color: var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .ql .go{ font-weight:950; opacity:.7; }
+
+  /* ===== Sections ===== */
+  .section{ margin-top:16px; }
+  .anchor{ scroll-margin-top: 92px; }
+
+  .section-head{
+    padding:16px 20px;
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+  }
+  .section-title{ display:flex; align-items:center; gap:10px; min-width:0; }
+  .section-head h2{
+    margin:0;
+    font-size:12px;
+    letter-spacing:2.6px;
+    text-transform:uppercase;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .sec-ico{ width:18px; height:18px; opacity:.9; }
+  .accent{
+    width:150px; height:10px;
+    background: linear-gradient(90deg,
+      color-mix(in srgb, var(--text) 92%, transparent),
+      color-mix(in srgb, var(--text) 25%, transparent));
+    opacity:.95;
+  }
+
+  .section-body{
+    padding:18px 20px 18px;
+    color: color-mix(in srgb, var(--text) 86%, transparent);
+    line-height:1.9;
+    font-size:14.8px;
+    font-weight:520;
+  }
+
+  /* ===== Certifications ===== */
+  .cert-grid{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap:14px;
+  }
+  @media (max-width: 980px){
+    .cert-grid{ grid-template-columns: 1fr; }
+  }
+
+  .cert-card{
+    border:1px solid var(--line);
+    border-radius:16px;
+    background: var(--card);
+    padding:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    min-height:92px;
+    box-shadow: var(--shadow2);
+    transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .18s var(--ease);
+  }
+  .cert-card:hover{
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    background: color-mix(in srgb, var(--card) 92%, var(--soft));
+  }
+
+  .cert-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+    flex:1 1 auto;
+  }
+
+  .cert-logo{
+    width:44px; height:44px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background: var(--card);
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    flex:0 0 auto;
+  }
+  .cert-logo img{
+    width:78%;
+    height:78%;
+    object-fit:contain;
+    display:block;
+  }
+
+  .cert-info{
+    min-width:0;
+    display:grid;
+    gap:6px;
+  }
+
+  .cert-info h3{
+    margin:0;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:-0.25px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .cert-meta{
+    margin:0;
+    font-size:12.5px;
+    font-weight:700;
+    color: var(--muted);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .cert-action .btn{
+    padding:10px 12px;
+    border-radius:12px;
+    font-size:12px;
+    font-weight:900;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .cert-action .btn .arr{
+    font-weight:950;
+    opacity:.85;
+  }
+
+  /* ===== Timeline ===== */
+  .timeline{ position:relative; padding-left:22px; display:grid; gap:14px; }
+  .timeline::before{
+    content:""; position:absolute;
+    left:7px; top:2px; bottom:2px;
+    width:2px; background: var(--line);
+  }
+  .t-item{
+    position:relative;
+    border:1px solid var(--line);
+    border-radius: var(--r);
+    background: var(--card);
+    padding:14px 14px 14px 16px;
+    transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+  }
+  .t-item:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
+  .t-item::before{
+    content:""; position:absolute;
+    left:-22px; top:18px;
+    width:14px; height:14px;
+    border-radius:4px;
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--text) 92%, transparent),
+      color-mix(in srgb, var(--text) 28%, transparent));
+    border:1px solid var(--line);
+  }
+  .t-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .t-title{ margin:0; font-size:15px; font-weight:800; letter-spacing:-0.25px; }
+  .t-meta{ font-size:12px; font-weight:750; color: var(--muted); white-space:nowrap; }
+  .t-sub{ margin:4px 0 0; font-size:13px; font-weight:650; color: color-mix(in srgb, var(--text) 75%, transparent); }
+  .t-desc{ margin:10px 0 0; color: color-mix(in srgb, var(--text) 78%, transparent); font-weight:520; line-height:1.75; font-size:14px; }
+  .t-tags{ margin-top:10px; display:flex; flex-wrap:wrap; gap:8px; }
+  .tagchip{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:7px 10px;
+    font-size:12px;
+    font-weight:700;
+    background: var(--card);
+  }
+
+  /* ===== Projects ===== */
+  .pub{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap:14px;
+    border:1px solid var(--line);
+    border-radius: var(--r);
+    background: var(--card);
+    padding:16px;
+    transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+  }
+  .pub:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
+  @media (max-width: 980px){ .pub{ grid-template-columns: 1fr; } }
+
+  .pub-preview{
+    border:1px solid var(--line);
+    border-radius:12px;
+    background: var(--soft);
+    padding:14px;
+    min-height: 230px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:10px;
+  }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 10px;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    background: var(--card);
+    opacity:0.92;
+  }
+  .pill .sq{
+    width:10px; height:10px; border-radius:2px;
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--text) 92%, transparent),
+      color-mix(in srgb, var(--text) 25%, transparent));
+  }
+
+  .thumb-frame{
+    border:1px solid var(--line);
+    border-radius:12px;
+    background: var(--card);
+    overflow:hidden;
+  }
+  .thumb-frame img{ width:100%; height:auto; display:block; }
+
+  .pub-body h3{ margin:0 0 8px; font-size:18px; font-weight:800; letter-spacing:-0.35px; }
+  .pub-body p{ margin:0; color: color-mix(in srgb, var(--text) 78%, transparent); font-weight:520; line-height:1.75; font-size:14px; }
+
+  .grid3{
+    margin-top:14px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:14px;
+  }
+  @media (max-width: 900px){ .grid3{ grid-template-columns: 1fr; } }
+
+  .tile{
+    border:1px solid var(--line);
+    border-radius: var(--r);
+    background: var(--card);
+    padding:16px;
+    transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    overflow:hidden;
+  }
+  .tile:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
+  .tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-weight:900; letter-spacing:2px; text-transform:uppercase;
+    font-size:11px; opacity:0.72;
+    margin-bottom:10px;
+  }
+  .tag .sq{ width:10px; height:10px; border-radius:2px; background: color-mix(in srgb, var(--text) 85%, transparent); }
+  .tile h4{ margin:0 0 8px; font-size:16px; font-weight:800; letter-spacing:-0.25px; }
+  .tile p{ margin:0; color: color-mix(in srgb, var(--text) 78%, transparent); font-weight:520; line-height:1.75; font-size:14px; }
+
+  /* ===== Endorsement ===== */
+  .endorsement-premium{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--card) 94%, white 6%),
+        color-mix(in srgb, var(--card) 98%, transparent));
+    padding:22px;
+    box-shadow: var(--shadow);
+    isolation:isolate;
+  }
+
+  .endorsement-glow{
+    position:absolute;
+    inset:auto -10% -40% auto;
+    width:280px;
+    height:280px;
+    border-radius:999px;
+    background: radial-gradient(circle, rgba(0,0,0,.08), transparent 68%);
+    filter: blur(24px);
+    opacity:.7;
+    z-index:0;
+    pointer-events:none;
+  }
+
+  [data-theme="dark"] .endorsement-glow{
+    background: radial-gradient(circle, rgba(255,255,255,.10), transparent 68%);
+    opacity:.85;
+  }
+
+  .endorsement-topline,
+  .endorsement-head,
+  .endorsement-quote,
+  .endorsement-note,
+  .endorsement-actions{
+    position:relative;
+    z-index:1;
+  }
+
+  .endorsement-topline{
+    display:flex;
+    justify-content:flex-start;
+    margin-bottom:14px;
+  }
+
+  .endorsement-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background: var(--soft);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+  }
+
+  .endorsement-head{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+  }
+
+  .endorsement-logo-wrap{
+    width:72px;
+    height:72px;
+    border-radius:18px;
+    border:1px solid var(--line);
+    background: var(--card);
+    display:grid;
+    place-items:center;
+    box-shadow: var(--shadow2);
+    flex:0 0 auto;
+  }
+
+  .endorsement-logo{
+    width:78%;
+    height:78%;
+    object-fit:contain;
+    display:block;
+  }
+
+  .endorsement-meta h3{
+    margin:0;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:-0.35px;
+  }
+
+  .endorsement-meta p{
+    margin:6px 0 0;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:700;
+    line-height:1.6;
+  }
+
+  .endorsement-quote{
+    margin:0;
+    padding:18px 18px 18px 20px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background: color-mix(in srgb, var(--soft) 70%, transparent);
+    font-size:15px;
+    line-height:1.9;
+    font-weight:600;
+    color: color-mix(in srgb, var(--text) 88%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  }
+
+  .endorsement-note{
+    margin:16px 0 0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+    font-weight:600;
+    max-width:75ch;
+  }
+
+  .endorsement-actions{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  @media (max-width: 720px){
+    .endorsement-premium{
+      padding:18px;
+      border-radius:18px;
+    }
+
+    .endorsement-logo-wrap{
+      width:64px;
+      height:64px;
+      border-radius:16px;
+    }
+
+    .endorsement-meta h3{
+      font-size:16px;
+    }
+
+    .endorsement-quote{
+      font-size:14px;
+      line-height:1.8;
+    }
+  }
+
+  /* ===== Contact ===== */
+  .two-col{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+  @media (max-width: 900px){ .two-col{ grid-template-columns: 1fr; } }
+
+  .mini{
+    border:1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    padding:16px;
+    transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .18s var(--ease);
+  }
+  .mini:hover{
+    transform: translateY(-2px);
+    background: color-mix(in srgb, var(--card) 92%, var(--soft));
+    box-shadow: var(--shadow2);
+  }
+
+  /* ===== AI Chat ===== */
+  .ai-chat-wrap{
+    position:fixed;
+    right:18px;
+    bottom:88px;
+    z-index:91;
+    display:grid;
+    justify-items:end;
+    pointer-events:none;
+  }
+
+  .ai-chat{
+    width:min(390px, calc(100vw - 36px));
+    border:1px solid var(--line);
+    border-radius:16px;
+    background: color-mix(in srgb, var(--card) 96%, transparent);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+    overflow:hidden;
+    pointer-events:auto;
+    transform-origin:bottom right;
+    transition:
+      opacity .25s var(--ease),
+      transform .25s var(--ease),
+      box-shadow .22s var(--ease);
+  }
+
+  .ai-chat.closed{
+    opacity:0;
+    transform:translateY(12px) scale(.985);
+    pointer-events:none;
+  }
+
+  .ai-chat.open{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+
+  .ai-chat-head{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    background: var(--soft);
+  }
+
+  .ai-chat-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+  }
+
+  .ai-dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    background: linear-gradient(135deg, rgba(0,0,0,.95), rgba(0,0,0,.35));
+    flex:0 0 auto;
+  }
+  [data-theme="dark"] .ai-dot{
+    background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.35));
+  }
+
+  .ai-chat-title strong{
+    font-size:12px;
+    font-weight:950;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+  }
+
+  .ai-chat-title span{
+    display:block;
+    font-size:11px;
+    color:var(--muted);
+    font-weight:700;
+    margin-top:2px;
+  }
+
+  .ai-head-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .ai-head-btn{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    border:1px solid var(--line);
+    background: var(--card);
+    color:var(--text);
+    display:grid;
+    place-items:center;
+    cursor:pointer;
+    font-weight:900;
+    transition: background .18s var(--ease), transform .18s var(--ease);
+  }
+  .ai-head-btn:hover{
+    background:var(--soft);
+    transform:translateY(-1px);
+  }
+
+  .ai-chat-body{
+    padding:12px;
+    display:grid;
+    gap:12px;
+  }
+
+  .ai-log{
+    display:grid;
+    gap:10px;
+    max-height:290px;
+    overflow:auto;
+    padding-right:2px;
+    scrollbar-width:thin;
+  }
+
+  .ai-msg{
+    max-width:94%;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:10px 12px;
+    font-size:13px;
+    line-height:1.7;
+    font-weight:600;
+    word-wrap:break-word;
+    animation: msgIn .22s var(--ease);
+  }
+
+  @keyframes msgIn{
+    from{
+      opacity:0;
+      transform:translateY(6px) scale(.99);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+  }
+
+  .ai-msg.bot{
+    background: var(--soft);
+    justify-self:start;
+  }
+
+  .ai-msg.user{
+    background: var(--card);
+    justify-self:end;
+  }
+
+  .ai-msg.bot strong{
+    font-weight:900;
+  }
+
+  .ai-msg.bot a{
+    color:inherit;
+    text-decoration:none;
+    font-weight:900;
+  }
+
+  .ai-msg .mini-actions{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .ai-typing{
+    display:none;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    font-weight:800;
+    color:var(--muted);
+    padding:0 2px;
+  }
+
+  .ai-typing.show{
+    display:flex;
+  }
+
+  .typing-dots{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+  }
+
+  .typing-dots span{
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    background: currentColor;
+    opacity:.35;
+    animation: typingBounce 1s infinite ease-in-out;
+  }
+  .typing-dots span:nth-child(2){ animation-delay:.15s; }
+  .typing-dots span:nth-child(3){ animation-delay:.3s; }
+
+  @keyframes typingBounce{
+    0%, 80%, 100%{ transform:translateY(0); opacity:.28; }
+    40%{ transform:translateY(-3px); opacity:.95; }
+  }
+
+  .ai-questions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .ai-chip{
+    border:1px solid var(--line);
+    background: var(--card);
+    color:var(--text);
+    border-radius:999px;
+    padding:8px 10px;
+    font-size:11px;
+    font-weight:900;
+    cursor:pointer;
+    transition: background .18s var(--ease), transform .18s var(--ease), border-color .18s var(--ease);
+  }
+  .ai-chip:hover{
+    background:var(--soft);
+    transform:translateY(-1px);
+  }
+
+  .ai-input-row{
+    display:flex;
+    gap:8px;
+  }
+
+  .ai-input{
+    flex:1;
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--text);
+    border-radius:12px;
+    padding:11px 12px;
+    font:inherit;
+    font-size:13px;
+    font-weight:600;
+    outline:none;
+  }
+
+  .ai-input:focus{
+    border-color: color-mix(in srgb, var(--text) 30%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 8%, transparent);
+  }
+
+  .ai-reset{
+    width:100%;
+    justify-content:center;
+    font-size:12px;
+    border-radius:12px;
+  }
+
+  .ai-launch{
+    width:52px;
+    height:52px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background: var(--card);
+    box-shadow: var(--shadow2);
+    display:grid;
+    place-items:center;
+    cursor:pointer;
+    pointer-events:auto;
+    transition: background .18s var(--ease), transform .18s var(--ease), opacity .22s var(--ease);
+  }
+  .ai-launch:hover{
+    background:var(--soft);
+    transform:translateY(-1px);
+  }
+  .ai-launch svg{
+    width:20px;
+    height:20px;
+  }
+
+  .ai-launch.hidden{
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(8px);
+  }
+
+  @media (max-width: 720px){
+    .ai-chat-wrap{
+      right:14px;
+      left:14px;
+      bottom:84px;
+      justify-items:stretch;
+    }
+    .ai-chat{
+      width:100%;
+    }
+    .ai-launch{
+      justify-self:end;
+    }
+  }
+
+  /* ===== Bottom-right contact popover ===== */
+  .contact-fab{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:90;
+    display:grid;
+    gap:10px;
+    justify-items:end;
+  }
+  .contact-btn{
+    width:52px;height:52px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background: var(--card);
+    box-shadow: var(--shadow2);
+    display:grid;
+    place-items:center;
+    cursor:pointer;
+    transition: background .18s var(--ease), transform .18s var(--ease);
+  }
+  .contact-btn:hover{ background: var(--soft); transform: translateY(-1px); }
+  .contact-btn svg{ width:20px; height:20px; }
+
+  .contact-pop{
+    width:min(340px, calc(100vw - 36px));
+    border:1px solid var(--line);
+    border-radius:14px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    overflow:hidden;
+    transform-origin: bottom right;
+    transform: scale(.98);
+    opacity:0;
+    pointer-events:none;
+    transition: 0.18s var(--ease);
+  }
+  .contact-pop.open{ opacity:1; pointer-events:auto; transform: scale(1); }
+  .contact-pop .head{
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background: var(--soft);
+  }
+  .contact-pop .head .title{
+    font-weight:900;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    font-size:12px;
+    opacity:.9;
+  }
+  .xbtn{
+    border:1px solid var(--line);
+    background: var(--card);
+    color: var(--text);
+    border-radius:10px;
+    padding:6px 10px;
+    font-weight:900;
+    cursor:pointer;
+    transition: background .18s var(--ease);
+  }
+  .xbtn:hover{ background: var(--soft); }
+  .contact-pop .body{ padding:12px 14px 14px; display:grid; gap:12px; }
+  .field{ border:1px solid var(--line); border-radius:12px; padding:10px; display:grid; gap:6px; }
+  .label{ font-weight:900; letter-spacing:1.8px; text-transform:uppercase; font-size:11px; opacity:.75; }
+  .value-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .value-row a{ text-decoration:none; font-weight:800; }
+  .copy{
+    border:1px solid var(--line);
+    background: var(--card);
+    color: var(--text);
+    border-radius:10px;
+    padding:8px 10px;
+    font-weight:900;
+    cursor:pointer;
+    transition: background .18s var(--ease);
+    font-size:12px;
+  }
+  .copy:hover{ background: var(--soft); }
+
+  .toast{
+    position:fixed;
+    right:18px;
+    bottom:84px;
+    z-index:120;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background: var(--card);
+    box-shadow: var(--shadow2);
+    font-weight:900;
+    font-size:13px;
+    opacity:0;
+    transform: translateY(8px);
+    pointer-events:none;
+    transition: 0.2s var(--ease);
+  }
+  .toast.show{ opacity:1; transform: translateY(0); }
+
+  /* Footer */
+  footer{
+    margin-top:18px;
+    border:1px solid var(--line);
+    border-radius: var(--r);
+    background: var(--card);
+    box-shadow: var(--shadow2);
+    overflow:hidden;
+  }
+  .foot-inner{
+    padding:14px 16px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+  }
+  .foot-left{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; min-width:0; }
+  .foot-title{
+    font-weight:950;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    font-size:11px;
+    opacity:.82;
+    white-space:nowrap;
+  }
+  .foot-chip{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 10px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background: var(--soft);
+    font-weight:800;
+    font-size:12px;
+    white-space:nowrap;
+  }
+  .foot-actions{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .foot-actions .btn{ padding:9px 12px; border-radius:12px; font-size:12px; }
+  .foot-sub{
+    padding:10px 16px 14px;
+    border-top:1px dashed var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    gap:10px; flex-wrap:wrap;
+    color: var(--muted);
+    font-weight:650;
+    font-size:12px;
+  }
+  .foot-sub strong{ color: color-mix(in srgb, var(--text) 82%, transparent); font-weight:900; }
+</style>
+</head>
+
+<body>
+  <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+  <div class="bg-stage" aria-hidden="true"><div class="grid"></div></div>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap" id="top">
+    <!-- NAV -->
+    <div class="nav">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span>Bhishek Shibdeen</span>
+      </div>
+
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;">
+        <button class="themebtn" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 16a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM4 11h2a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2zm14 0h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zM12 7a5 5 0 1 1 0 10a5 5 0 0 1 0-10z"/>
+          </svg>
+          <span id="themeLabel">Dark</span>
+        </button>
+
+        <div class="navlinks">
+          <a href="#intro" class="nav-item">Intro</a>
+          <a href="#certs" class="nav-item">Certifications</a>
+          <a href="#experience" class="nav-item">Experience</a>
+          <a href="#projects" class="nav-item">Projects</a>
+          <a href="#endorsement" class="nav-item">Endorsement</a>
+          <a href="#contact" class="nav-item">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <section class="card hero hero-main anchor reveal" id="intro">
+      <div class="hero-grid">
+        <div>
+          <h1>Bhishek Shibdeen</h1>
+
+          <div class="motto-row">
+            <span class="kaizen"><span class="kaizen-dot"></span>Kaizen</span>
+            <span style="font-weight:820; opacity:0.70;">Compliance • AML/CFT • Risk</span>
+          </div>
+
+          <p class="subtitle">
+            I build competence in <strong>Compliance</strong> and <strong>Financial Crime Risk</strong> through structured work:
+            risk-based onboarding, due diligence support, screening logic, and documentation discipline that stays review-ready.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#projects">View projects ↓</a>
+            <a class="btn" href="mailto:bhishek.shibdeen@icloud.com">Email</a>
+            <a class="btn" href="https://www.linkedin.com/in/bhishekshibdeen/" target="_blank" rel="noreferrer">
+              <svg class="li-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M20.45 20.45h-3.55v-5.6c0-1.34-.03-3.06-1.86-3.06-1.86 0-2.15 1.45-2.15 2.96v5.7H9.34V9h3.41v1.56h.05c.47-.9 1.63-1.86 3.36-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.78C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.78 24h20.44c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <aside class="panel reveal" aria-label="Quick Links">
+          <h3>Quick Links</h3>
+          <p>Fast access to your CV + featured work.</p>
+
+          <div class="quicklinks">
+            <div class="ql">
+              <a href="CV_Bhishek_Shibdeen.pdf" target="_blank" rel="noreferrer">
+                <div class="left">
+                  <span class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h9l3 3v17H6V2zm8 1.5V6h2.5L14 3.5zM8 9h8v2H8V9zm0 4h8v2H8v-2zm0 4h6v2H8v-2z"/></svg>
+                  </span>
+                  <span class="txt">
+                    <span class="t">Download CV</span>
+                    <span class="s">CV_Bhishek_Shibdeen.pdf</span>
+                  </span>
+                </div>
+                <span class="go">↗</span>
+              </a>
+            </div>
+
+            <div class="ql" id="featuredQL">
+              <a id="featuredQLLink" href="AML_Regulations_Mauritius.pdf" target="_blank" rel="noreferrer">
+                <div class="left">
+                  <span class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h12v20H6V2zm2 2v16h8V4H8zm1 2h6v2H9V6zm0 4h6v2H9v-2zm0 4h4v2H9v-2z"/></svg>
+                  </span>
+                  <span class="txt">
+                    <span class="t" id="featuredQLTitle">Featured PDF</span>
+                    <span class="s" id="featuredQLSub">AML Regulations in Mauritius</span>
+                  </span>
+                </div>
+                <span class="go">↗</span>
+              </a>
+            </div>
+
+            <div class="ql">
+              <a href="mailto:bhishek.shibdeen@icloud.com">
+                <div class="left">
+                  <span class="ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                  </span>
+                  <span class="txt">
+                    <span class="t">Email</span>
+                    <span class="s">bhishek.shibdeen@icloud.com</span>
+                  </span>
+                </div>
+                <span class="go">↗</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="card section anchor reveal" id="certs">
+      <div class="section-head">
+        <div class="section-title">
+          <svg class="sec-ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 2l3 7 7 .6-5.3 4.6 1.6 7.2L12 17.8 5.7 21.4l1.6-7.2L2 9.6 9 9z"/>
+          </svg>
+          <h2>Certifications</h2>
+        </div>
+        <span class="accent" aria-hidden="true"></span>
+      </div>
+
+      <div class="section-body">
+        <div class="cert-grid">
+
+          <div class="cert-card">
+            <div class="cert-left">
+              <div class="cert-logo">
+                <img src="yale.jpeg" alt="Yale University logo" loading="lazy" />
+              </div>
+              <div class="cert-info">
+                <h3>Financial Markets — Yale University (Coursera)</h3>
+                <p class="cert-meta">Issued Feb 2026 • PDF</p>
+              </div>
+            </div>
+            <div class="cert-action">
+              <a class="btn" href="Certificate_Yale_Financial_Markets.pdf" target="_blank" rel="noreferrer">
+                View <span class="arr">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-left">
+              <div class="cert-logo">
+                <img src="fca.jpeg" alt="Financial Crime Academy by Verdian logo" loading="lazy" />
+              </div>
+              <div class="cert-info">
+                <h3>AML Essentials — Financial Crime Academy</h3>
+                <p class="cert-meta">Issued Feb 2026 • PDF</p>
+              </div>
+            </div>
+            <div class="cert-action">
+              <a class="btn" href="Certificate_FCA_AML_Essentials.pdf" target="_blank" rel="noreferrer">
+                View <span class="arr">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-left">
+              <div class="cert-logo">
+                <img src="fei.png" alt="France Éducation international logo" loading="lazy" />
+              </div>
+              <div class="cert-info">
+                <h3>DELF B2 — Diplôme d’Études en Langue Française</h3>
+                <p class="cert-meta">Issued Mar 2025 • PDF</p>
+              </div>
+            </div>
+            <div class="cert-action">
+              <a class="btn" href="Certificate_DELF_B2.pdf" target="_blank" rel="noreferrer">
+                View <span class="arr">↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="card section anchor reveal" id="experience">
+      <div class="section-head">
+        <div class="section-title">
+          <svg class="sec-ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M7 2h10v2h3v18H4V4h3V2zm2 2h6V3H9v1zm-3 4v12h12V8H6zm2 2h8v2H8v-2zm0 4h8v2H8v-2z"/>
+          </svg>
+          <h2>Experience</h2>
+        </div>
+        <span class="accent" aria-hidden="true"></span>
+      </div>
+
+      <div class="section-body">
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-head">
+              <div>
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <img src="arie.jpeg"
+                       alt="ARIE Finance logo"
+                       style="width:32px;height:32px;object-fit:contain;border-radius:6px;border:1px solid var(--line);padding:3px;background:var(--card);">
+                  <div>
+                    <p class="t-title" style="margin:0;">ARIE Finance</p>
+                    <p style="margin:2px 0 0;font-size:13px;font-weight:700;opacity:.8;">
+                      KYC & Compliance Operations Intern
+                    </p>
+                  </div>
+                </div>
+
+                <p class="t-sub">Ébène, Mauritius • On-site</p>
+              </div>
+              <div class="t-meta">Dec 2025 — Present</div>
+            </div>
+            <p class="t-desc">
+              Conduct KYC & CDD reviews for corporate and retail clients, perform sanctions and PEP screening,
+              support ongoing monitoring and remediation, and validate onboarding documentation against internal policy and regulatory expectations.
+            </p>
+            <div class="t-tags">
+              <span class="tagchip">KYC / CDD</span>
+              <span class="tagchip">Sanctions & PEP Screening</span>
+              <span class="tagchip">Ongoing Monitoring</span>
+              <span class="tagchip">Documentation Quality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="card section anchor reveal" id="projects">
+      <div class="section-head">
+        <div class="section-title">
+          <svg class="sec-ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4 5h16v14H4V5zm2 2v10h12V7H6zm2 2h8v2H8V9zm0 4h6v2H8v-2z"/>
+          </svg>
+          <h2>Projects</h2>
+        </div>
+        <span class="accent" aria-hidden="true"></span>
+      </div>
+
+      <div class="section-body">
+        <div class="pub" id="featuredCard" role="button" tabindex="0" aria-label="Open featured PDF">
+          <div class="pub-preview" aria-hidden="true">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+              <span class="pill"><span class="sq"></span>Featured PDF</span>
+              <span class="pill" id="featuredTag" style="border-radius:10px; letter-spacing:1px; text-transform:none;">AML/CFT</span>
+            </div>
+
+            <div class="thumb-frame">
+              <img id="featuredThumb" src="aml-thumb.jpeg" alt="Featured PDF preview" loading="lazy" />
+            </div>
+
+            <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-end;">
+              <div id="featuredRegion" style="font-weight:950; letter-spacing:1.8px; text-transform:uppercase; font-size:11px; opacity:0.72;">
+                Mauritius
+              </div>
+              <div class="btn primary" style="padding:9px 12px; border-radius:10px; font-size:12px;">
+                Open PDF ↗
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-body">
+            <h3 id="featuredTitle">AML Regulations in Mauritius</h3>
+            <p id="featuredDesc">
+              A simplified, viewer-friendly overview of the AML/CFT ecosystem in Mauritius:
+              reporting flow, core obligations, risk-based controls, and how key bodies interact across supervision and intelligence.
+            </p>
+
+            <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;" id="featuredBadges">
+              <span class="tagchip">FATF-Aligned</span>
+              <span class="tagchip">Mauritius Regulatory Context</span>
+              <span class="tagchip">Educational Framework</span>
+            </div>
+
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn primary" id="featuredOpenBtn" href="AML_Regulations_Mauritius.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+              <a class="btn" href="#contact">Contact me</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="tile reveal">
+            <div class="tag"><span class="sq"></span>Project</div>
+            <div class="thumb-frame">
+              <img src="kyc-controls-overview.jpeg" alt="KYC Controls Overview" loading="lazy">
+            </div>
+            <h4>KYC Controls Overview</h4>
+            <p>Risk-based onboarding outline: CDD/EDD triggers, file quality checks, and audit-ready documentation standards.</p>
+            <div style="margin-top:12px;">
+              <a class="btn" href="KYC_Controls_Overview.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+            </div>
+          </div>
+
+          <div class="tile reveal">
+            <div class="tag"><span class="sq"></span>Project</div>
+            <h4>Screening & Escalation Logic</h4>
+            <p>Mapping sanctions, PEP, and adverse media checks into consistent escalation decisions and defensible record-keeping.</p>
+          </div>
+
+          <div class="tile reveal">
+            <div class="tag"><span class="sq"></span>Project</div>
+            <h4>Documentation Discipline</h4>
+            <p>A practical checklist for maintaining review-ready files: evidence, rationale, and consistency across onboarding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENDORSEMENT -->
+    <section class="card section anchor reveal" id="endorsement">
+      <div class="section-head">
+        <div class="section-title">
+          <svg class="sec-ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 2l2.4 4.86L20 7.7l-4 3.9.94 5.5L12 14.9 7.06 17.1 8 11.6 4 7.7l5.6-.84L12 2z"/>
+          </svg>
+          <h2>Professional Endorsement</h2>
+        </div>
+        <span class="accent" aria-hidden="true"></span>
+      </div>
+
+      <div class="section-body">
+        <div class="endorsement-premium">
+          <div class="endorsement-glow"></div>
+
+          <div class="endorsement-topline">
+            <span class="endorsement-badge">Verified Recommendation</span>
+          </div>
+
+          <div class="endorsement-head">
+            <div class="endorsement-logo-wrap">
+              <img src="SUD logo.jpg" alt="Association SUD logo" class="endorsement-logo" loading="lazy">
+            </div>
+
+            <div class="endorsement-meta">
+              <h3>Association Solidarité Unité et Développement (SUD)</h3>
+              <p>Community Organisation • Mauritius</p>
+            </div>
+          </div>
+
+          <blockquote class="endorsement-quote">
+            “A professional recommendation letter recognising Bhishek Shibdeen’s engagement, discipline, professionalism, and contribution.
+            The full signed document can be viewed below.”
+          </blockquote>
+
+          <p class="endorsement-note">
+            This endorsement reflects external recognition of character, responsibility, and commitment — adding an additional layer of credibility to Bhishek’s professional profile.
+          </p>
+
+          <div class="endorsement-actions">
+            <a class="btn primary" href="Bhishek_Shibdeen_Recommendation_Association_SUD.pdf" target="_blank" rel="noreferrer">
+              View Recommendation ↗
+            </a>
+            <a class="btn" href="Bhishek_Shibdeen_Recommendation_Association_SUD.pdf" download>
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- CONTACT -->
+    <section class="card section anchor reveal" id="contact">
+      <div class="section-head">
+        <div class="section-title">
+          <svg class="sec-ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M21 8V7l-3 2-2-1-2 1-2-1-2 1-2-1-2 1-3-2v1l3 2 2-1 2 1 2-1 2 1 2-1 2 1 3-2zM3 10v9h18v-9l-3 2-2-1-2 1-2-1-2 1-2-1-2 1-3-2z"/>
+          </svg>
+          <h2>Contact</h2>
+        </div>
+        <span class="accent" aria-hidden="true"></span>
+      </div>
+
+      <div class="section-body">
+        <div class="two-col">
+          <div class="mini reveal">
+            <div style="font-weight:950; letter-spacing:2.4px; text-transform:uppercase; font-size:11px; opacity:0.76;">Email</div>
+            <div style="margin-top:6px; font-weight:950;">
+              <a href="mailto:bhishek.shibdeen@icloud.com" style="text-decoration:none;">bhishek.shibdeen@icloud.com</a>
+            </div>
+
+            <div style="margin-top:14px; font-weight:950; letter-spacing:2.4px; text-transform:uppercase; font-size:11px; opacity:0.76;">Phone</div>
+            <div style="margin-top:6px; font-weight:950;">
+              <a href="tel:+23055024085" style="text-decoration:none;">+230 55024085</a>
+            </div>
+          </div>
+
+          <div class="mini reveal">
+            <div style="font-weight:950; letter-spacing:2.4px; text-transform:uppercase; font-size:11px; opacity:0.76;">LinkedIn</div>
+            <div style="margin-top:10px;">
+              <a class="btn" href="https://www.linkedin.com/in/bhishekshibdeen/" target="_blank" rel="noreferrer">
+                <svg class="li-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M20.45 20.45h-3.55v-5.6c0-1.34-.03-3.06-1.86-3.06-1.86 0-2.15 1.45-2.15 2.96v5.7H9.34V9h3.41v1.56h.05c.47-.9 1.63-1.86 3.36-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.78C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.78 24h20.44c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+                </svg>
+                View Profile ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="reveal" id="press">
+      <div class="foot-inner">
+        <div class="foot-left">
+          <div class="foot-title">Press-Ready</div>
+          <div class="foot-chip">Email: <strong id="pressEmail">bhishek.shibdeen@icloud.com</strong></div>
+          <div class="foot-chip">Last updated: <strong>Mar 2026</strong></div>
+        </div>
+
+        <div class="foot-actions">
+          <button class="btn" id="copyEmailBtn" type="button">Copy email</button>
+          <a class="btn" href="CV_Bhishek_Shibdeen.pdf" download>Download CV</a>
+          <a class="btn primary" href="https://www.linkedin.com/in/bhishekshibdeen/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="foot-sub">
+        <div>© 2026 Bhishek Shibdeen</div>
+        <div style="opacity:.9;">Tip: ask the portfolio assistant about projects, CV, endorsement, or contact ✨</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- AI Chat Box -->
+  <div class="ai-chat-wrap" aria-label="Portfolio assistant">
+    <div class="ai-chat closed" id="aiChatBox">
+      <div class="ai-chat-head">
+        <div class="ai-chat-title">
+          <span class="ai-dot"></span>
+          <div>
+            <strong>Portfolio Assistant</strong>
+            <span>Quick answers about Bhishek</span>
+          </div>
+        </div>
+
+        <div class="ai-head-actions">
+          <button class="ai-head-btn" id="aiMinBtn" type="button" aria-label="Minimize portfolio assistant">−</button>
+        </div>
+      </div>
+
+      <div class="ai-chat-body">
+        <div class="ai-log" id="aiLog">
+          <div class="ai-msg bot">
+            Welcome — I’m Bhishek’s portfolio assistant. I can help you explore his background in Compliance, AML/CFT, Risk, certifications, project work, endorsement, and contact options.
+          </div>
+        </div>
+
+        <div class="ai-typing" id="aiTyping">
+          <span>Assistant is typing...</span>
+          <span class="typing-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </div>
+
+        <div class="ai-questions" id="aiQuestions">
+          <button class="ai-chip" type="button" data-question="What does Bhishek do?">What does Bhishek do?</button>
+          <button class="ai-chip" type="button" data-question="What experience does he have?">What experience does he have?</button>
+          <button class="ai-chip" type="button" data-question="What certifications does he hold?">What certifications does he hold?</button>
+          <button class="ai-chip" type="button" data-question="What are his main projects?">What are his main projects?</button>
+          <button class="ai-chip" type="button" data-question="Does he have a recommendation letter?">Does he have a recommendation letter?</button>
+          <button class="ai-chip" type="button" data-question="Can I view his CV?">Can I view his CV?</button>
+          <button class="ai-chip" type="button" data-question="How can I contact him?">How can I contact him?</button>
+        </div>
+
+        <div class="ai-input-row">
+          <input
+            id="aiInput"
+            class="ai-input"
+            type="text"
+            placeholder="Ask about experience, projects, certifications, endorsement, CV..."
+            aria-label="Ask the portfolio assistant"
+          />
+          <button class="btn" id="aiSendBtn" type="button">Send</button>
+        </div>
+
+        <button class="btn ai-reset" id="aiResetBtn" type="button">Reset chat</button>
+      </div>
+    </div>
+
+    <button class="ai-launch" id="aiLaunchBtn" type="button" aria-label="Open portfolio assistant">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M12 3c4.97 0 9 3.58 9 8c0 2.18-.98 4.16-2.58 5.6L19 21l-4.14-2.07c-.9.2-1.86.31-2.86.31c-4.97 0-9-3.58-9-8s4.03-8.24 9-8.24zm-4 7.5a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5zm4 0a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5zm4 0a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Bottom-right contact -->
+  <div class="contact-fab" aria-label="Quick contact">
+    <div class="contact-pop" id="contactPop" role="dialog" aria-label="Contact details">
+      <div class="head">
+        <div class="title">Contact</div>
+        <button class="xbtn" id="closePop" aria-label="Close contact panel">✕</button>
+      </div>
+      <div class="body">
+        <div class="field">
+          <div class="label">Email</div>
+          <div class="value-row">
+            <a href="mailto:bhishek.shibdeen@icloud.com" id="emailLink">bhishek.shibdeen@icloud.com</a>
+            <button class="copy" data-copy="bhishek.shibdeen@icloud.com" type="button">Copy</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Phone</div>
+          <div class="value-row">
+            <a href="tel:+23055024085" id="phoneLink">+230 55024085</a>
+            <button class="copy" data-copy="+230 55024085" type="button">Copy</button>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="mailto:bhishek.shibdeen@icloud.com">Email me</a>
+          <a class="btn" href="tel:+23055024085">Call</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="contact-btn" id="contactBtn" aria-label="Open contact details" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="toast" id="toast" aria-hidden="true">Copied ✅</div>
+
+<script>
+  // Safe open helper
+  function safeOpen(url){
+    const clean = encodeURI(url);
+    const w = window.open(clean, "_blank", "noopener,noreferrer");
+    if(w) return;
+    const a = document.createElement("a");
+    a.href = clean;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  // ===== Theme =====
+  (function(){
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
+    const label = document.getElementById("themeLabel");
+    const icon = document.getElementById("themeIcon");
+
+    function setTheme(mode){
+      if(mode === "dark") root.setAttribute("data-theme","dark");
+      else root.removeAttribute("data-theme");
+      localStorage.setItem("theme", mode);
+
+      const isDark = mode === "dark";
+      label.textContent = isDark ? "Light" : "Dark";
+
+      icon.innerHTML = isDark
+        ? '<path fill="currentColor" d="M21 14.5A7.5 7.5 0 0 1 9.5 3a6.5 6.5 0 1 0 11.5 11.5z"/>'
+        : '<path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 16a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM4 11h2a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2zm14 0h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2zM12 7a5 5 0 1 1 0 10a5 5 0 0 1 0-10z"/>';
+    }
+
+    const saved = localStorage.getItem("theme");
+    setTheme(saved === "dark" ? "dark" : "light");
+
+    btn.addEventListener("click", () => {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      setTheme(isDark ? "light" : "dark");
+    });
+  })();
+
+  // ===== Scroll progress =====
+  (function(){
+    const bar = document.getElementById("bar");
+    function update(){
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      bar.style.width = pct.toFixed(2) + "%";
+    }
+    window.addEventListener("scroll", update, { passive:true });
+    window.addEventListener("resize", update);
+    update();
+  })();
+
+  // ===== Reveal on scroll =====
+  (function(){
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  })();
+
+  // ===== Active nav highlight =====
+  (function(){
+    const links = Array.from(document.querySelectorAll(".nav-item"));
+    const ids = ["intro","certs","experience","projects","endorsement","contact","press"];
+    const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+
+    const io = new IntersectionObserver((entries) => {
+      const vis = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
+      if(!vis) return;
+      const activeId = vis.target.id;
+
+      links.forEach(l => l.classList.remove("active"));
+      const active = links.find(l => l.getAttribute("href") === "#" + activeId);
+      if(active) active.classList.add("active");
+    }, { threshold: [0.35, 0.5, 0.65] });
+
+    sections.forEach(s => io.observe(s));
+  })();
+
+  // ===== Contact popover + copy =====
+  (function(){
+    const btn = document.getElementById("contactBtn");
+    const pop = document.getElementById("contactPop");
+    const close = document.getElementById("closePop");
+    const toast = document.getElementById("toast");
+
+    function closePopFn(){ pop.classList.remove("open"); }
+
+    btn.addEventListener("click", () => { pop.classList.toggle("open"); });
+    close.addEventListener("click", closePopFn);
+
+    document.addEventListener("click", (e) => {
+      const within = pop.contains(e.target) || btn.contains(e.target);
+      if(!within) closePopFn();
+    });
+
+    function showToast(msg){
+      toast.textContent = msg || "Copied ✅";
+      toast.classList.add("show");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(()=> toast.classList.remove("show"), 1100);
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast("Copied ✅");
+      }catch(e){
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        showToast("Copied ✅");
+      }
+    }
+
+    document.querySelectorAll(".copy").forEach(b => {
+      b.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        copyText(b.dataset.copy || "");
+      });
+    });
+
+    const copyEmailBtn = document.getElementById("copyEmailBtn");
+    if(copyEmailBtn){
+      copyEmailBtn.addEventListener("click", () => copyText("bhishek.shibdeen@icloud.com"));
+    }
+  })();
+
+  // ===== Spotlight follows cursor =====
+  (function(){
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    if(reduce || isTouch) return;
+
+    const spot = document.querySelector(".spotlight");
+    if(!spot) return;
+
+    let tx = window.innerWidth * 0.5;
+    let ty = window.innerHeight * 0.32;
+    let x = tx, y = ty;
+    let raf = null;
+
+    function render(){
+      raf = null;
+      x += (tx - x) * 0.14;
+      y += (ty - y) * 0.14;
+      spot.style.setProperty("--sx", x.toFixed(1) + "px");
+      spot.style.setProperty("--sy", y.toFixed(1) + "px");
+
+      if(Math.abs(tx - x) > 0.25 || Math.abs(ty - y) > 0.25){
+        raf = requestAnimationFrame(render);
+      }
+    }
+
+    window.addEventListener("mousemove", (e) => {
+      tx = e.clientX;
+      ty = e.clientY;
+      if(!raf) raf = requestAnimationFrame(render);
+    }, { passive:true });
+  })();
+
+  // ===== Particles =====
+  (function(){
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduce) return;
+
+    const canvas = document.getElementById("particleCanvas");
+    if(!canvas) return;
+
+    const ctx = canvas.getContext("2d", { alpha:true });
+    const DPR = Math.min(2, window.devicePixelRatio || 1);
+
+    let W=0, H=0, particles=[];
+    const COUNT_DESKTOP = 70, COUNT_MOBILE = 42;
+    const LINK_DIST = 140, SPEED = 0.35;
+    const DOT_ALPHA = 0.55, LINE_ALPHA = 0.10;
+    const DOT_SIZE = 1.35, PARALLAX = 0.015;
+    let mx=0, my=0;
+
+    function resize(){
+      W = canvas.width = Math.floor(window.innerWidth * DPR);
+      H = canvas.height = Math.floor(window.innerHeight * DPR);
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx.setTransform(1,0,0,1,0,0);
+
+      const count = (window.innerWidth < 720) ? COUNT_MOBILE : COUNT_DESKTOP;
+      particles = Array.from({ length: count }, () => makeParticle(true));
+    }
+
+    function makeParticle(randomPos){
+      const x = randomPos ? Math.random() * W : 0;
+      const y = randomPos ? Math.random() * H : 0;
+      const a = Math.random() * Math.PI * 2;
+      const sp = SPEED * (0.55 + Math.random() * 0.9) * DPR;
+      return { x, y, vx: Math.cos(a)*sp, vy: Math.sin(a)*sp, r: (DOT_SIZE + Math.random()*0.8) * DPR };
+    }
+
+    function isDark(){ return document.documentElement.getAttribute("data-theme") === "dark"; }
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+
+      const dark = isDark();
+      const dotColor = dark ? `rgba(255,255,255,${DOT_ALPHA})` : `rgba(0,0,0,${DOT_ALPHA})`;
+      const lineBase = dark ? `rgba(255,255,255,${LINE_ALPHA})` : `rgba(0,0,0,${LINE_ALPHA})`;
+
+      for(const p of particles){
+        p.x += p.vx + (mx - 0.5) * PARALLAX * W * 0.02;
+        p.y += p.vy + (my - 0.5) * PARALLAX * H * 0.02;
+        if(p.x < -40) p.x = W + 40;
+        if(p.x > W + 40) p.x = -40;
+        if(p.y < -40) p.y = H + 40;
+        if(p.y > H + 40) p.y = -40;
+      }
+
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const a = particles[i], b = particles[j];
+          const dx=a.x-b.x, dy=a.y-b.y;
+          const d2 = dx*dx + dy*dy;
+          const max2 = (LINK_DIST*DPR) * (LINK_DIST*DPR);
+          if(d2 < max2){
+            const d = Math.sqrt(d2);
+            const t = 1 - (d / (LINK_DIST*DPR));
+            ctx.strokeStyle = lineBase.replace(/[\d.]+\)$/,(LINE_ALPHA * t).toFixed(3)+")");
+            ctx.lineWidth = 1 * DPR;
+            ctx.beginPath();
+            ctx.moveTo(a.x,a.y);
+            ctx.lineTo(b.x,b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      ctx.fillStyle = dotColor;
+      for(const p of particles){
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("mousemove",(e)=>{
+      mx = e.clientX / window.innerWidth;
+      my = e.clientY / window.innerHeight;
+    }, { passive:true });
+
+    window.addEventListener("resize", resize);
+    resize();
+    draw();
+  })();
+
+  // ===== Featured PDF =====
+  (function(){
+    const featuredHref = "AML_Regulations_Mauritius.pdf";
+
+    const card = document.getElementById("featuredCard");
+    const btn = document.getElementById("featuredOpenBtn");
+    const ql = document.getElementById("featuredQLLink");
+
+    if(card){
+      card.addEventListener("click", (e)=>{ e.preventDefault(); safeOpen(featuredHref); });
+      card.addEventListener("keydown", (e)=>{
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          safeOpen(featuredHref);
+        }
+      });
+    }
+
+    if(btn){
+      btn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        safeOpen(featuredHref);
+      });
+    }
+
+    if(ql){
+      ql.addEventListener("click", (e)=>{
+        e.preventDefault();
+        safeOpen(featuredHref);
+      });
+    }
+  })();
+
+  // ===== AI Chat =====
+  (function(){
+    const chatBox = document.getElementById("aiChatBox");
+    const launchBtn = document.getElementById("aiLaunchBtn");
+    const minBtn = document.getElementById("aiMinBtn");
+    const log = document.getElementById("aiLog");
+    const typing = document.getElementById("aiTyping");
+    const questionsWrap = document.getElementById("aiQuestions");
+    const resetBtn = document.getElementById("aiResetBtn");
+    const aiInput = document.getElementById("aiInput");
+    const aiSendBtn = document.getElementById("aiSendBtn");
+
+    if(!chatBox || !launchBtn || !minBtn || !log || !typing || !questionsWrap || !resetBtn || !aiInput || !aiSendBtn) return;
+
+    const initialQuestions = [
+      "What does Bhishek do?",
+      "What experience does he have?",
+      "What certifications does he hold?",
+      "What are his main projects?",
+      "Does he have a recommendation letter?",
+      "Can I view his CV?",
+      "How can I contact him?"
+    ];
+
+    const answers = {
+      "What does Bhishek do?": {
+        text: `
+          <div>
+            Bhishek is building his path in <strong>Compliance, AML/CFT, and Risk</strong>, with practical exposure to onboarding, screening, and documentation controls.
+            <div class="mini-actions">
+              <button class="ai-chip" data-follow="What experience does he have?">Experience</button>
+              <button class="ai-chip" data-follow="What are his main projects?">Projects</button>
+            </div>
+          </div>
+        `,
+        followups: ["What experience does he have?", "What are his main projects?"],
+        html: true
+      },
+
+      "What experience does he have?": {
+        text: `
+          <div>
+            He is currently a <strong>KYC & Compliance Operations Intern at ARIE Finance</strong> in Ébène, Mauritius. His work includes KYC and CDD reviews, sanctions and PEP screening, ongoing monitoring support, and validation of onboarding files against internal policy and regulatory expectations.
+            <div class="mini-actions">
+              <button class="ai-chip" data-follow="What does Bhishek do?">What he does</button>
+              <button class="ai-chip" data-follow="How can I contact him?">Contact</button>
+            </div>
+          </div>
+        `,
+        followups: ["What does Bhishek do?", "How can I contact him?"],
+        html: true
+      },
+
+      "What certifications does he hold?": {
+        text: `
+          <div>
+            His certifications include <strong>Financial Markets by Yale University</strong>, <strong>AML Essentials from the Financial Crime Academy</strong>, and <strong>DELF B2</strong> in French language proficiency.
+            <div class="mini-actions">
+              <button class="ai-chip" data-follow="What are his main projects?">Projects</button>
+              <button class="ai-chip" data-follow="Can I view his CV?">Open CV</button>
+            </div>
+          </div>
+        `,
+        followups: ["What are his main projects?", "Can I view his CV?"],
+        html: true
+      },
+
+      "What are his main projects?": {
+        text: `
+          <div style="display:grid; gap:10px;">
+            <div>His main portfolio work includes the following:</div>
+            <div class="mini-actions">
+              <a class="btn" href="AML_Regulations_Mauritius.pdf" target="_blank" rel="noreferrer">AML Regulations in Mauritius ↗</a>
+              <a class="btn" href="KYC_Controls_Overview.pdf" target="_blank" rel="noreferrer">KYC Controls Overview ↗</a>
+            </div>
+            <div>He also highlights <strong>Screening & Escalation Logic</strong> and <strong>Documentation Discipline</strong> as practical compliance-focused projects.</div>
+          </div>
+        `,
+        followups: ["What certifications does he hold?", "Does he have a recommendation letter?"],
+        html: true
+      },
+
+      "Does he have a recommendation letter?": {
+        text: `
+          <div style="display:grid; gap:10px;">
+            <div>Yes — his portfolio includes a <strong>professional endorsement from Association Solidarité Unité et Développement (SUD)</strong>.</div>
+            <div class="mini-actions">
+              <a class="btn primary" href="Bhishek_Shibdeen_Recommendation_Association_SUD.pdf" target="_blank" rel="noreferrer">View Recommendation ↗</a>
+            </div>
+          </div>
+        `,
+        followups: ["Can I view his CV?", "How can I contact him?"],
+        html: true
+      },
+
+      "Can I view his CV?": {
+        text: `
+          <div style="display:grid; gap:10px;">
+            <div>Yes — you can open Bhishek’s CV directly below.</div>
+            <div class="mini-actions">
+              <a class="btn primary" href="CV_Bhishek_Shibdeen.pdf" target="_blank" rel="noreferrer">Open CV ↗</a>
+            </div>
+          </div>
+        `,
+        followups: ["What experience does he have?", "How can I contact him?"],
+        html: true
+      },
+
+      "How can I contact him?": {
+        text: `
+          <div style="display:grid; gap:10px;">
+            <div>You can contact <strong>Bhishek</strong> through any of the options below:</div>
+            <div class="mini-actions">
+              <a class="btn" href="mailto:bhishek.shibdeen@icloud.com">Email</a>
+              <a class="btn" href="tel:+23055024085">Call</a>
+              <a class="btn" href="https://www.linkedin.com/in/bhishekshibdeen/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            </div>
+          </div>
+        `,
+        followups: ["What does Bhishek do?", "Does he have a recommendation letter?"],
+        html: true
+      }
+    };
+
+    function setOpen(open){
+      if(open){
+        chatBox.classList.remove("closed");
+        chatBox.classList.add("open");
+        launchBtn.classList.add("hidden");
+      }else{
+        chatBox.classList.remove("open");
+        chatBox.classList.add("closed");
+        launchBtn.classList.remove("hidden");
+      }
+    }
+
+    function addMessage(content, role, isHTML = false){
+      const el = document.createElement("div");
+      el.className = "ai-msg " + role;
+
+      if(isHTML){
+        el.innerHTML = content;
+      }else{
+        el.textContent = content;
+      }
+
+      log.appendChild(el);
+      bindInlineFollowups(el);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function bindInlineFollowups(scope){
+      scope.querySelectorAll("[data-follow]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const q = btn.getAttribute("data-follow");
+          if(q) handleQuestion(q);
+        });
+      });
+    }
+
+    function showTyping(){
+      typing.classList.add("show");
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function hideTyping(){
+      typing.classList.remove("show");
+    }
+
+    function renderQuestions(list){
+      questionsWrap.innerHTML = "";
+      list.forEach(question => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "ai-chip";
+        btn.dataset.question = question;
+        btn.textContent = question;
+        btn.addEventListener("click", () => handleQuestion(question));
+        questionsWrap.appendChild(btn);
+      });
+    }
+
+    function getAnswerFromInput(value){
+      const q = value.toLowerCase().trim();
+
+      if(q.includes("experience") || q.includes("intern") || q.includes("arie")){
+        return "What experience does he have?";
+      }
+      if(q.includes("cert") || q.includes("yale") || q.includes("delf") || q.includes("aml essentials")){
+        return "What certifications does he hold?";
+      }
+      if(q.includes("project") || q.includes("work") || q.includes("portfolio") || q.includes("pdf")){
+        return "What are his main projects?";
+      }
+      if(q.includes("recommend") || q.includes("endorsement") || q.includes("letter") || q.includes("sud")){
+        return "Does he have a recommendation letter?";
+      }
+      if(q.includes("contact") || q.includes("email") || q.includes("phone") || q.includes("linkedin") || q.includes("reach")){
+        return "How can I contact him?";
+      }
+      if(q.includes("cv") || q.includes("resume")){
+        return "Can I view his CV?";
+      }
+      if(q.includes("do") || q.includes("who") || q.includes("about") || q.includes("background")){
+        return "What does Bhishek do?";
+      }
+
+      return null;
+    }
+
+    function handleQuestion(question){
+      const entry = answers[question];
+      if(!entry) return;
+
+      addMessage(question, "user");
+      showTyping();
+
+      setTimeout(() => {
+        hideTyping();
+        addMessage(entry.text, "bot", !!entry.html);
+        renderQuestions(entry.followups && entry.followups.length ? entry.followups : initialQuestions);
+      }, 850);
+    }
+
+    function handleTypedQuestion(){
+      const value = aiInput.value.trim();
+      if(!value) return;
+
+      addMessage(value, "user");
+      aiInput.value = "";
+      showTyping();
+
+      setTimeout(() => {
+        hideTyping();
+
+        const matched = getAnswerFromInput(value);
+        if(matched && answers[matched]){
+          const entry = answers[matched];
+          addMessage(entry.text, "bot", !!entry.html);
+          renderQuestions(entry.followups && entry.followups.length ? entry.followups : initialQuestions);
+        } else {
+          addMessage(
+            "I can currently help with Bhishek’s experience, certifications, projects, endorsement, CV, and contact details.",
+            "bot"
+          );
+          renderQuestions(initialQuestions);
+        }
+      }, 800);
+    }
+
+    function resetChat(){
+      log.innerHTML = "";
+      addMessage(
+        "Welcome — I’m Bhishek’s portfolio assistant. I can help you explore his background in Compliance, AML/CFT, Risk, certifications, project work, endorsement, and contact options.",
+        "bot"
+      );
+      hideTyping();
+      renderQuestions(initialQuestions);
+      aiInput.value = "";
+    }
+
+    launchBtn.addEventListener("click", () => setOpen(true));
+    minBtn.addEventListener("click", () => setOpen(false));
+    resetBtn.addEventListener("click", resetChat);
+    aiSendBtn.addEventListener("click", handleTypedQuestion);
+
+    aiInput.addEventListener("keydown", (e) => {
+      if(e.key === "Enter") handleTypedQuestion();
+    });
+
+    const firstVisitKey = "bhishek_ai_chat_opened_v3";
+    const alreadyOpened = localStorage.getItem(firstVisitKey);
+
+    resetChat();
+
+    if(!alreadyOpened){
+      setTimeout(() => {
+        setOpen(true);
+        localStorage.setItem(firstVisitKey, "yes");
+      }, 900);
+    }else{
+      setOpen(false);
+    }
+  })();
+</script>
+
+</body>
+</html>
