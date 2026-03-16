@@ -13,26 +13,34 @@
 
 <style>
   :root{
-    --bg:#ffffff;
+    --bg:#f5f9ff;
     --card:#ffffff;
-    --text:#0b0b0b;
-    --muted: rgba(0,0,0,.62);
-    --line: rgba(0,0,0,.14);
-    --soft: rgba(0,0,0,.04);
+    --text:#0f1f3a;
+    --muted: rgba(15,31,58,.66);
+    --line: rgba(40,76,140,.16);
+    --soft: rgba(46,94,180,.06);
+
+    --accent:#1f4fa3;
+    --accent-2:#4d7fd6;
+    --accent-3:#dbe8ff;
 
     --r:12px;
-    --shadow: 0 20px 60px rgba(0,0,0,0.10);
-    --shadow2: 0 10px 26px rgba(0,0,0,0.075);
+    --shadow: 0 20px 60px rgba(16,42,88,0.14);
+    --shadow2: 0 10px 26px rgba(16,42,88,0.09);
     --ease: cubic-bezier(.2,.8,.2,1);
   }
 
   [data-theme="dark"]{
-    --bg:#0b0f14;
-    --card:#0f151d;
-    --text:#f2f4f7;
-    --muted: rgba(255,255,255,.62);
-    --line: rgba(255,255,255,.14);
-    --soft: rgba(255,255,255,.06);
+    --bg:#08111f;
+    --card:#0d1b30;
+    --text:#eef4ff;
+    --muted: rgba(238,244,255,.68);
+    --line: rgba(124,160,223,.18);
+    --soft: rgba(124,160,223,.08);
+
+    --accent:#74a7ff;
+    --accent-2:#a8c5ff;
+    --accent-3:#16345f;
 
     --shadow: 0 20px 60px rgba(0,0,0,0.45);
     --shadow2: 0 10px 26px rgba(0,0,0,0.30);
@@ -66,11 +74,11 @@
   }
   .progress > span{
     display:block; height:100%; width:0%;
-    background: linear-gradient(90deg, rgba(0,0,0,.90), rgba(0,0,0,.25));
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
     transform-origin:left;
   }
   [data-theme="dark"] .progress > span{
-    background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.25));
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
   }
 
   /* ===== Premium background stack ===== */
@@ -79,47 +87,48 @@
   .bg-stage{
     position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
     background:
-      radial-gradient(circle at 14% 18%, rgba(0,0,0,0.03), transparent 44%),
-      radial-gradient(circle at 88% 20%, rgba(0,0,0,0.02), transparent 46%),
-      radial-gradient(circle at 50% 92%, rgba(0,0,0,0.02), transparent 52%);
+      radial-gradient(circle at 14% 18%, rgba(62,110,201,0.10), transparent 44%),
+      radial-gradient(circle at 88% 20%, rgba(91,139,226,0.08), transparent 46%),
+      radial-gradient(circle at 50% 92%, rgba(31,79,163,0.07), transparent 52%);
   }
   [data-theme="dark"] .bg-stage{
     background:
-      radial-gradient(circle at 14% 18%, rgba(255,255,255,0.06), transparent 44%),
-      radial-gradient(circle at 88% 20%, rgba(255,255,255,0.05), transparent 46%),
-      radial-gradient(circle at 50% 92%, rgba(255,255,255,0.04), transparent 52%);
+      radial-gradient(circle at 14% 18%, rgba(116,167,255,0.13), transparent 44%),
+      radial-gradient(circle at 88% 20%, rgba(82,132,214,0.11), transparent 46%),
+      radial-gradient(circle at 50% 92%, rgba(168,197,255,0.08), transparent 52%);
   }
+
   .grid{
     position:absolute; inset:0;
-    opacity:0.06;
+    opacity:0.08;
     background:
-      linear-gradient(rgba(0,0,0,0.10) 1px, transparent 1px) 0 0/96px 96px,
-      linear-gradient(90deg, rgba(0,0,0,0.10) 1px, transparent 1px) 0 0/96px 96px;
+      linear-gradient(rgba(31,79,163,0.10) 1px, transparent 1px) 0 0/96px 96px,
+      linear-gradient(90deg, rgba(31,79,163,0.10) 1px, transparent 1px) 0 0/96px 96px;
     mask-image: radial-gradient(circle at 50% 18%, black 0%, transparent 72%);
   }
   [data-theme="dark"] .grid{
-    opacity:0.08;
+    opacity:0.10;
     background:
-      linear-gradient(rgba(255,255,255,0.10) 1px, transparent 1px) 0 0/96px 96px,
-      linear-gradient(90deg, rgba(255,255,255,0.10) 1px, transparent 1px) 0 0/96px 96px;
+      linear-gradient(rgba(116,167,255,0.12) 1px, transparent 1px) 0 0/96px 96px,
+      linear-gradient(90deg, rgba(116,167,255,0.12) 1px, transparent 1px) 0 0/96px 96px;
   }
 
   .ambient{
     position:fixed; inset:-10%;
     pointer-events:none; z-index:0;
-    opacity:.55; filter:blur(18px);
+    opacity:.65; filter:blur(18px);
     background:
-      radial-gradient(520px 420px at 18% 22%, rgba(0,0,0,0.05), transparent 70%),
-      radial-gradient(620px 520px at 84% 26%, rgba(0,0,0,0.04), transparent 72%),
-      radial-gradient(760px 560px at 56% 86%, rgba(0,0,0,0.035), transparent 74%);
+      radial-gradient(520px 420px at 18% 22%, rgba(31,79,163,0.10), transparent 70%),
+      radial-gradient(620px 520px at 84% 26%, rgba(77,127,214,0.08), transparent 72%),
+      radial-gradient(760px 560px at 56% 86%, rgba(46,94,180,0.07), transparent 74%);
     animation: ambientDrift 18s ease-in-out infinite alternate;
   }
   [data-theme="dark"] .ambient{
-    opacity:.6;
+    opacity:.72;
     background:
-      radial-gradient(560px 460px at 18% 22%, rgba(255,255,255,0.07), transparent 72%),
-      radial-gradient(680px 560px at 84% 26%, rgba(255,255,255,0.055), transparent 74%),
-      radial-gradient(820px 620px at 56% 86%, rgba(255,255,255,0.045), transparent 76%);
+      radial-gradient(560px 460px at 18% 22%, rgba(116,167,255,0.14), transparent 72%),
+      radial-gradient(680px 560px at 84% 26%, rgba(82,132,214,0.12), transparent 74%),
+      radial-gradient(820px 620px at 56% 86%, rgba(168,197,255,0.09), transparent 76%);
   }
   @keyframes ambientDrift{
     0%{ transform: translate(-1.2%, -0.8%) scale(1.02); }
@@ -130,15 +139,15 @@
   .spotlight{
     position:fixed; inset:0;
     pointer-events:none; z-index:0;
-    --sx:50vw; --sy:30vh; --a:0.10;
+    --sx:50vw; --sy:30vh; --a:0.14;
     background: radial-gradient(760px 560px at var(--sx) var(--sy),
-      rgba(0,0,0,var(--a)), transparent 74%);
+      rgba(77,127,214,var(--a)), transparent 74%);
     filter: blur(7px);
   }
   [data-theme="dark"] .spotlight{
-    --a:0.14;
+    --a:0.16;
     background: radial-gradient(760px 560px at var(--sx) var(--sy),
-      rgba(255,255,255,var(--a)), transparent 74%);
+      rgba(116,167,255,var(--a)), transparent 74%);
   }
   @media (max-width: 720px){ .spotlight, .ambient{ display:none; } }
 
@@ -194,10 +203,10 @@
   .brand{ display:flex; align-items:center; gap:10px; font-weight:950; }
   .brand-mark{
     width:11px; height:11px; border-radius:3px;
-    background: linear-gradient(135deg, rgba(0,0,0,.9), rgba(0,0,0,.25));
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
   }
   [data-theme="dark"] .brand-mark{
-    background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.25));
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
   }
 
   .navlinks{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; justify-content:flex-end; }
@@ -219,12 +228,12 @@
   }
   .nav a.active{
     opacity:1;
-    background: rgba(0,0,0,0.055);
-    border-color: rgba(0,0,0,.18);
+    background: rgba(31,79,163,0.08);
+    border-color: rgba(31,79,163,.22);
   }
   [data-theme="dark"] .nav a.active{
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.18);
+    background: rgba(116,167,255,0.10);
+    border-color: rgba(116,167,255,.24);
   }
 
   .themebtn{
@@ -294,10 +303,10 @@
   }
   .kaizen-dot{
     width:9px; height:9px; border-radius:2px;
-    background: linear-gradient(135deg, rgba(0,0,0,.9), rgba(0,0,0,.25));
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
   }
   [data-theme="dark"] .kaizen-dot{
-    background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.25));
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
   }
 
   .subtitle{
@@ -331,16 +340,14 @@
   }
   .btn:hover{ background: var(--soft); transform: translateY(-1px); }
   .btn.primary{
-    border-color: color-mix(in srgb, var(--text) 22%, transparent);
-    color: var(--bg);
-    background: linear-gradient(90deg,
-      color-mix(in srgb, var(--text) 92%, transparent),
-      color-mix(in srgb, var(--text) 55%, transparent));
-    box-shadow: 0 14px 38px rgba(0,0,0,0.18);
+    border-color: rgba(31,79,163,.24);
+    color: #ffffff;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    box-shadow: 0 14px 38px rgba(31,79,163,0.22);
   }
   [data-theme="dark"] .btn.primary{
-    color:#0b0f14;
-    background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.60));
+    color:#08111f;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
     box-shadow: 0 14px 38px rgba(0,0,0,0.45);
   }
   .btn.primary:hover{ transform: translateY(-2px); }
@@ -416,9 +423,7 @@
   .sec-ico{ width:18px; height:18px; opacity:.9; }
   .accent{
     width:150px; height:10px;
-    background: linear-gradient(90deg,
-      color-mix(in srgb, var(--text) 92%, transparent),
-      color-mix(in srgb, var(--text) 25%, transparent));
+    background: linear-gradient(90deg, var(--accent), rgba(77,127,214,0.22));
     opacity:.95;
   }
 
@@ -544,9 +549,7 @@
     left:-22px; top:18px;
     width:14px; height:14px;
     border-radius:4px;
-    background: linear-gradient(135deg,
-      color-mix(in srgb, var(--text) 92%, transparent),
-      color-mix(in srgb, var(--text) 28%, transparent));
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
     border:1px solid var(--line);
   }
   .t-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap; }
@@ -607,9 +610,7 @@
   }
   .pill .sq{
     width:10px; height:10px; border-radius:2px;
-    background: linear-gradient(135deg,
-      color-mix(in srgb, var(--text) 92%, transparent),
-      color-mix(in srgb, var(--text) 25%, transparent));
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
   }
 
   .thumb-frame{
@@ -646,7 +647,7 @@
     font-size:11px; opacity:0.72;
     margin-bottom:10px;
   }
-  .tag .sq{ width:10px; height:10px; border-radius:2px; background: color-mix(in srgb, var(--text) 85%, transparent); }
+  .tag .sq{ width:10px; height:10px; border-radius:2px; background: var(--accent); }
   .tile h4{ margin:0 0 8px; font-size:16px; font-weight:800; letter-spacing:-0.25px; }
   .tile p{ margin:0; color: color-mix(in srgb, var(--text) 78%, transparent); font-weight:520; line-height:1.75; font-size:14px; }
 
@@ -671,7 +672,7 @@
     width:280px;
     height:280px;
     border-radius:999px;
-    background: radial-gradient(circle, rgba(0,0,0,.08), transparent 68%);
+    background: radial-gradient(circle, rgba(31,79,163,.10), transparent 68%);
     filter: blur(24px);
     opacity:.7;
     z-index:0;
@@ -679,7 +680,7 @@
   }
 
   [data-theme="dark"] .endorsement-glow{
-    background: radial-gradient(circle, rgba(255,255,255,.10), transparent 68%);
+    background: radial-gradient(circle, rgba(116,167,255,.12), transparent 68%);
     opacity:.85;
   }
 
@@ -882,11 +883,11 @@
     width:10px;
     height:10px;
     border-radius:999px;
-    background: linear-gradient(135deg, rgba(0,0,0,.95), rgba(0,0,0,.35));
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
     flex:0 0 auto;
   }
   [data-theme="dark"] .ai-dot{
-    background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.35));
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
   }
 
   .ai-chat-title strong{
@@ -1070,8 +1071,8 @@
   }
 
   .ai-input:focus{
-    border-color: color-mix(in srgb, var(--text) 30%, transparent);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--text) 8%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
   }
 
   .ai-reset{
@@ -1482,9 +1483,9 @@
                        alt="ARIE Finance logo"
                        style="width:32px;height:32px;object-fit:contain;border-radius:6px;border:1px solid var(--line);padding:3px;background:var(--card);">
                   <div>
-                    <p class="t-title" style="margin:0;">ARIE Finance</p>
+                    <p class="t-title" style="margin:0;">KYC & Compliance Operations Intern</p>
                     <p style="margin:2px 0 0;font-size:13px;font-weight:700;opacity:.8;">
-                      KYC & Compliance Operations Intern
+                      ARIE Finance
                     </p>
                   </div>
                 </div>
@@ -1590,7 +1591,7 @@
       </div>
     </section>
 
-    <!-- ENDORSEMENT -->
+        <!-- ENDORSEMENT -->
     <section class="card section anchor reveal" id="endorsement">
       <div class="section-head">
         <div class="section-title">
@@ -1626,11 +1627,7 @@
             The full signed document can be viewed below.”
           </blockquote>
 
-          <p class="endorsement-note">
-            This endorsement reflects external recognition of character, responsibility, and commitment — adding an additional layer of credibility to Bhishek’s professional profile.
-          </p>
-
-          <div class="endorsement-actions">
+         <div class="endorsement-actions">
             <a class="btn primary" href="Bhishek_Shibdeen_Recommendation_Association_SUD.pdf" target="_blank" rel="noreferrer">
               View Recommendation ↗
             </a>
@@ -1642,7 +1639,7 @@
       </div>
     </section>
 
-        <!-- CONTACT -->
+    <!-- CONTACT -->
     <section class="card section anchor reveal" id="contact">
       <div class="section-head">
         <div class="section-title">
@@ -1701,7 +1698,6 @@
 
       <div class="foot-sub">
         <div>© 2026 Bhishek Shibdeen</div>
-        <div style="opacity:.9;">Tip: ask the portfolio assistant about projects, CV, endorsement, or contact ✨</div>
       </div>
     </footer>
   </div>
@@ -2032,8 +2028,13 @@
       ctx.clearRect(0,0,W,H);
 
       const dark = isDark();
-      const dotColor = dark ? `rgba(255,255,255,${DOT_ALPHA})` : `rgba(0,0,0,${DOT_ALPHA})`;
-      const lineBase = dark ? `rgba(255,255,255,${LINE_ALPHA})` : `rgba(0,0,0,${LINE_ALPHA})`;
+      const dotColor = dark
+        ? `rgba(116,167,255,${DOT_ALPHA})`
+        : `rgba(31,79,163,${DOT_ALPHA})`;
+
+      const lineBase = dark
+        ? `rgba(116,167,255,${LINE_ALPHA})`
+        : `rgba(31,79,163,${LINE_ALPHA})`;
 
       for(const p of particles){
         p.x += p.vx + (mx - 0.5) * PARALLAX * W * 0.02;
